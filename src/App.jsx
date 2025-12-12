@@ -1,12 +1,14 @@
 import React, { useState, useMemo } from 'react';
-import { 
+import { Routes, Route, Link } from 'react-router-dom';
+import {
   Sparkles, Rocket, GitBranch, BookOpen, BarChart3, Wrench,
   Search, Globe, Star, MapPin, Calendar, Grid3X3, LayoutList,
   Trophy, Zap, Code, Brain, Palette, Calculator, Languages, Gauge,
   ExternalLink, X, ChevronRight, Filter, TrendingUp, Users, Building2,
   Cpu, Terminal, Smartphone, PenTool, Puzzle, FolderGit2, Award, RotateCcw,
-  Landmark, Plug, Package, Hash, FileCode
+  Landmark, Plug, Package, Hash, FileCode, Info
 } from 'lucide-react';
+import About from './About';
 
 // ========================================
 // ENCYCLOPÉDIE DU VIBE CODING 2025
@@ -5681,6 +5683,18 @@ const VibeCodingEncyclopedia = () => {
             <div style={{ color: '#f472b6', fontSize: '28px', fontWeight: '700' }}>10</div>
             <div style={{ color: '#9ca3af', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>VPS Providers</div>
           </div>
+          <Link to="/a-propos" style={{
+            backgroundColor: 'rgba(156, 163, 175, 0.15)',
+            border: '1px solid rgba(156, 163, 175, 0.3)',
+            borderRadius: '12px',
+            padding: '12px 20px',
+            textAlign: 'center',
+            textDecoration: 'none',
+            transition: 'all 0.3s'
+          }}>
+            <div style={{ color: '#9ca3af', fontSize: '28px', fontWeight: '700' }}>?</div>
+            <div style={{ color: '#9ca3af', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>À propos</div>
+          </Link>
         </div>
 
         {/* Tagline */}
@@ -8801,9 +8815,24 @@ const VibeCodingEncyclopedia = () => {
           </svg>
           par Claude Code
         </p>
+        <Link to="/a-propos" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', marginTop: '16px', color: '#9ca3af', textDecoration: 'none', fontSize: '13px', padding: '8px 16px', borderRadius: '8px', border: '1px solid rgba(156, 163, 175, 0.3)', backgroundColor: 'rgba(156, 163, 175, 0.1)' }}>
+          <Info size={14} />
+          À propos
+        </Link>
       </footer>
     </div>
   );
 };
 
-export default VibeCodingEncyclopedia;
+
+
+const App = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<VibeCodingEncyclopedia />} />
+      <Route path="/a-propos" element={<About />} />
+    </Routes>
+  );
+};
+
+export { App as default };
