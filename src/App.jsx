@@ -5265,6 +5265,8 @@ const VibeCodingEncyclopedia = () => {
         backgroundColor: 'rgba(255,255,255,0.05)',
         borderRadius: '16px',
         padding: '24px',
+      maxWidth: '100vw',
+      overflowX: 'hidden',
         border: '1px solid rgba(255,255,255,0.1)',
         cursor: 'pointer',
         transition: 'all 0.3s ease',
@@ -5550,7 +5552,9 @@ const VibeCodingEncyclopedia = () => {
       backgroundColor: '#0f0f23',
       color: '#fff',
       fontFamily: "'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif",
-      padding: '24px'
+      padding: '24px',
+      maxWidth: '100vw',
+      overflowX: 'hidden'
     }}>
       {/* Header */}
       <header style={{ textAlign: 'center', marginBottom: '40px' }}>
@@ -7147,7 +7151,9 @@ const VibeCodingEncyclopedia = () => {
               <div style={{ 
                 backgroundColor: 'rgba(255,255,255,0.03)', 
                 borderRadius: '16px', 
-                padding: '24px', 
+                padding: '24px',
+      maxWidth: '100vw',
+      overflowX: 'hidden', 
                 border: '1px solid rgba(168, 85, 247, 0.2)'
               }}>
                 {/* Légende */}
@@ -7237,7 +7243,9 @@ const VibeCodingEncyclopedia = () => {
                 gap: '16px',
                 backgroundColor: 'rgba(255,255,255,0.03)', 
                 borderRadius: '16px', 
-                padding: '24px', 
+                padding: '24px',
+      maxWidth: '100vw',
+      overflowX: 'hidden', 
                 border: '1px solid rgba(168, 85, 247, 0.2)'
               }}>
                 {[
@@ -7302,7 +7310,9 @@ const VibeCodingEncyclopedia = () => {
               <div style={{ 
                 backgroundColor: 'rgba(255,255,255,0.03)', 
                 borderRadius: '16px', 
-                padding: '24px', 
+                padding: '24px',
+      maxWidth: '100vw',
+      overflowX: 'hidden', 
                 border: '1px solid rgba(168, 85, 247, 0.2)'
               }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '12px', fontSize: '11px', color: '#9ca3af' }}>
@@ -8489,7 +8499,7 @@ const VibeCodingEncyclopedia = () => {
                         </span>
                       </div>
                       <p style={{ color: '#9ca3af', fontSize: '13px', margin: 0, lineHeight: '1.5' }}>{standard.description}</p>
-                      </div>
+                      </a>
                   ))}
                 </div>
               </div>
@@ -8759,6 +8769,8 @@ const VibeCodingEncyclopedia = () => {
       <footer style={{
         marginTop: '60px',
         padding: '24px',
+      maxWidth: '100vw',
+      overflowX: 'hidden',
         textAlign: 'center',
         borderTop: '1px solid rgba(255,255,255,0.1)'
       }}>
