@@ -393,47 +393,51 @@ body {
    Bandeau stats défilant - Mobile
    ============================================ */
 
-.stats-ticker {
+.stats-marquee {
   overflow: hidden;
-  margin-bottom: 24px;
-}
-
-.stats-ticker-track {
-  display: flex;
-  gap: 16px;
-  animation: ticker 15s linear infinite;
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.1) 0%, rgba(251, 191, 36, 0.1) 50%, rgba(16, 185, 129, 0.1) 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
   padding: 8px 0;
-  width: max-content;
+  margin: -24px -24px 24px -24px;
+  cursor: pointer;
 }
 
-@keyframes ticker {
+.stats-marquee-track {
+  display: flex;
+  gap: 32px;
+  animation: marquee 20s linear infinite;
+  width: max-content;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.stats-marquee:hover .stats-marquee-track,
+.stats-marquee.paused .stats-marquee-track {
+  animation-play-state: paused;
+}
+
+.stats-marquee-track span {
+  white-space: nowrap;
+}
+
+.stats-marquee-track .highlight {
+  color: #a78bfa;
+  font-weight: 600;
+}
+
+@keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
-.stat-chip {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  white-space: nowrap;
-}
-
-.stat-chip .number {
-  font-weight: 700;
-}
-
-/* Desktop : masquer ticker, afficher grille */
+/* Desktop : masquer bandeau, afficher grille */
 @media (min-width: 768px) {
-  .stats-ticker {
+  .stats-marquee {
     display: none;
   }
 }
 
-/* Mobile : masquer grille, afficher ticker */
+/* Mobile : masquer grille */
 .stats-grid {
   display: none;
 }
