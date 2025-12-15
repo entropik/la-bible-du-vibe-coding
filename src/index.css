@@ -254,3 +254,137 @@ body {
     gap: 6px;
   }
 }
+
+/* ============================================
+   Classes génériques - Toutes sections
+   ============================================ */
+
+/* Conteneur de section modal (Ressources, GitHub, Benchmarks) */
+.section-container {
+  border-radius: 20px;
+  margin-bottom: 32px;
+  position: relative;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .section-container {
+    min-height: 85vh;
+    max-height: 85vh;
+  }
+}
+
+/* Header sticky générique */
+.section-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: linear-gradient(135deg, rgba(15, 15, 35, 0.98) 0%, rgba(26, 26, 46, 0.98) 100%);
+  backdrop-filter: blur(10px);
+  padding: 12px 16px;
+  border-radius: 20px 20px 0 0;
+}
+
+@media (min-width: 640px) {
+  .section-header {
+    padding: 24px 32px 16px;
+  }
+}
+
+/* Contenu scrollable */
+.section-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+@media (min-width: 640px) {
+  .section-content {
+    padding: 24px 32px 32px;
+  }
+}
+
+/* Filtres catégories - Pills scrollables */
+.category-filters {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+  margin-top: 12px;
+}
+
+.category-filters::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .category-filters {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    margin-top: 16px;
+  }
+}
+
+/* Pill de filtre catégorie */
+.filter-pill {
+  flex-shrink: 0;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (min-width: 640px) {
+  .filter-pill {
+    padding: 6px 12px;
+    font-size: 12px;
+    gap: 5px;
+  }
+}
+
+/* Barre de recherche responsive */
+.search-input {
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+}
+
+@media (min-width: 640px) {
+  .search-input {
+    padding: 14px 20px 14px 48px;
+    font-size: 15px;
+  }
+}
+
+/* Grille d'items responsive */
+.items-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 480px) {
+  .items-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .items-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}

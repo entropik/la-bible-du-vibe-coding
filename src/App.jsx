@@ -5964,32 +5964,19 @@ const VibeCodingEncyclopedia = () => {
 
       {/* Section Glossaire */}
       {activeSection === 'glossary' && (
-        <div 
+        <div
           id="glossary-section"
+          className="section-container"
           style={{
             backgroundColor: 'rgba(251, 191, 36, 0.05)',
-            border: '1px solid rgba(251, 191, 36, 0.2)',
-            borderRadius: '20px',
-            marginBottom: '32px',
-            position: 'relative',
-            minHeight: '85vh',
-            maxHeight: '85vh',
-            display: 'flex',
-            flexDirection: 'column',
-            overflow: 'hidden'
+            border: '1px solid rgba(251, 191, 36, 0.2)'
           }}
         >
           {/* Header sticky */}
-          <div style={{
-            position: 'sticky',
-            top: 0,
-            zIndex: 20,
-            background: 'linear-gradient(135deg, rgba(15, 15, 35, 0.98) 0%, rgba(26, 26, 46, 0.98) 100%)',
-            backdropFilter: 'blur(10px)',
-            padding: '24px 32px 16px',
-            borderBottom: '1px solid rgba(251, 191, 36, 0.2)',
-            borderRadius: '20px 20px 0 0'
-          }}>
+          <div
+            className="section-header"
+            style={{ borderBottom: '1px solid rgba(251, 191, 36, 0.2)' }}
+          >
             <button
               onClick={() => setActiveSection(null)}
               style={{
@@ -6039,18 +6026,13 @@ const VibeCodingEncyclopedia = () => {
               />
               <input
                 type="text"
-                placeholder="Rechercher un terme, concept, ressource..."
+                placeholder="Rechercher un terme..."
                 value={glossarySearch}
                 onChange={e => setGlossarySearch(e.target.value)}
+                className="search-input"
                 style={{
-                  width: '100%',
-                  padding: '14px 20px 14px 48px',
-                  borderRadius: '12px',
                   border: '1px solid rgba(251, 191, 36, 0.3)',
-                  backgroundColor: 'rgba(251, 191, 36, 0.05)',
-                  color: '#fff',
-                  fontSize: '15px',
-                  outline: 'none'
+                  backgroundColor: 'rgba(251, 191, 36, 0.05)'
                 }}
               />
               {glossarySearch && (
@@ -6080,20 +6062,16 @@ const VibeCodingEncyclopedia = () => {
             </div>
 
             {/* Filtres par catégorie */}
-            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '16px', alignItems: 'center' }}>
+            <div className="category-filters">
               {['tous', 'concept', 'technologie', 'interface', 'développement', 'business', 'évaluation', 'licence', 'déploiement', 'formation'].map(cat => (
                 <button
                   key={cat}
+                  className="filter-pill"
                   onClick={() => setGlossaryFilter(cat)}
                   style={{
                     backgroundColor: glossaryFilter === cat ? 'rgba(251, 191, 36, 0.3)' : 'rgba(255,255,255,0.1)',
                     color: glossaryFilter === cat ? '#fbbf24' : '#d1d5db',
-                    border: glossaryFilter === cat ? '1px solid rgba(251, 191, 36, 0.5)' : '1px solid transparent',
-                    padding: '6px 12px',
-                    borderRadius: '20px',
-                    fontSize: '12px',
-                    cursor: 'pointer',
-                    transition: 'all 0.2s'
+                    border: glossaryFilter === cat ? '1px solid rgba(251, 191, 36, 0.5)' : '1px solid transparent'
                   }}
                 >
                   {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -6135,7 +6113,7 @@ const VibeCodingEncyclopedia = () => {
           </div>
 
           {/* Contenu scrollable */}
-          <div style={{ flex: 1, overflowY: 'auto', padding: '24px 32px 32px' }}>
+          <div className="section-content">
             {/* Compteur */}
             <div style={{ marginBottom: '16px', color: '#9ca3af', fontSize: '14px' }}>
               {glossary.filter(item => {
@@ -6157,12 +6135,7 @@ const VibeCodingEncyclopedia = () => {
             </div>
             
             {/* Grille des définitions */}
-            <div style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
-              gap: '16px',
-              maxWidth: '1600px'
-            }}>
+            <div className="items-grid" style={{ maxWidth: '1600px' }}>
               {glossary
                 .filter(item => {
                   const matchCategory = glossaryFilter === 'tous' || item.category.toLowerCase() === glossaryFilter;
@@ -6754,32 +6727,19 @@ const VibeCodingEncyclopedia = () => {
 
       {/* Section Benchmarks */}
       {activeSection === 'benchmarks' && (
-        <div 
+        <div
           id="benchmarks-section"
+          className="section-container"
           style={{
             backgroundColor: 'rgba(168, 85, 247, 0.05)',
-            border: '1px solid rgba(168, 85, 247, 0.2)',
-            borderRadius: '20px',
-            marginBottom: '32px',
-            position: 'relative',
-            minHeight: '85vh',
-            maxHeight: '85vh',
-            display: 'flex',
-            flexDirection: 'column',
-            overflow: 'hidden'
+            border: '1px solid rgba(168, 85, 247, 0.2)'
           }}
         >
           {/* Header sticky */}
-          <div style={{
-            position: 'sticky',
-            top: 0,
-            zIndex: 20,
-            background: 'linear-gradient(135deg, rgba(15, 15, 35, 0.98) 0%, rgba(26, 26, 46, 0.98) 100%)',
-            backdropFilter: 'blur(10px)',
-            padding: '24px 32px 16px',
-            borderBottom: '1px solid rgba(168, 85, 247, 0.2)',
-            borderRadius: '20px 20px 0 0'
-          }}>
+          <div
+            className="section-header"
+            style={{ borderBottom: '1px solid rgba(168, 85, 247, 0.2)' }}
+          >
             <button
               onClick={() => setActiveSection(null)}
               style={{
@@ -6814,14 +6774,14 @@ const VibeCodingEncyclopedia = () => {
           </div>
 
           {/* Contenu scrollable */}
-          <div style={{ flex: 1, overflowY: 'auto', padding: '24px 32px 32px' }}>
-            
+          <div className="section-content">
+
             {/* 1. PODIUM - Top 3 par catégorie */}
             <div style={{ marginBottom: '40px' }}>
               <h3 style={{ color: '#a78bfa', fontSize: '18px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                 <Trophy size={20} color="#a78bfa" /> Podium par Catégorie
               </h3>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
+              <div className="items-grid">
                 {[
                   { cat: 'Code', icon: 'code', models: ['Claude 3.5 Sonnet', 'Qwen 2.5 Coder', 'GPT-4o'], scores: [93.7, 92.7, 90.2], colors: ['#cc785c', '#ff6a00', '#10a37f'] },
                   { cat: 'Raisonnement', icon: 'brain', models: ['Gemini 2.0 Pro', 'Claude 3.5 Sonnet', 'GPT-4o'], scores: [92, 90, 88], colors: ['#4285f4', '#cc785c', '#10a37f'] },
@@ -7322,32 +7282,19 @@ const VibeCodingEncyclopedia = () => {
 
       {/* Section GitHub */}
       {activeSection === 'github' && (
-        <div 
+        <div
           id="github-section"
+          className="section-container"
           style={{
             backgroundColor: 'rgba(88, 166, 255, 0.05)',
-            border: '1px solid rgba(88, 166, 255, 0.2)',
-            borderRadius: '20px',
-            marginBottom: '32px',
-            position: 'relative',
-            minHeight: '85vh',
-            maxHeight: '85vh',
-            display: 'flex',
-            flexDirection: 'column',
-            overflow: 'hidden'
+            border: '1px solid rgba(88, 166, 255, 0.2)'
           }}
         >
           {/* Header sticky */}
-          <div style={{
-            position: 'sticky',
-            top: 0,
-            zIndex: 20,
-            background: 'linear-gradient(135deg, rgba(15, 15, 35, 0.98) 0%, rgba(26, 26, 46, 0.98) 100%)',
-            backdropFilter: 'blur(10px)',
-            padding: '24px 32px 16px',
-            borderBottom: '1px solid rgba(88, 166, 255, 0.2)',
-            borderRadius: '20px 20px 0 0'
-          }}>
+          <div
+            className="section-header"
+            style={{ borderBottom: '1px solid rgba(88, 166, 255, 0.2)' }}
+          >
             <button
               onClick={() => setActiveSection(null)}
               style={{
@@ -7395,18 +7342,13 @@ const VibeCodingEncyclopedia = () => {
               />
               <input
                 type="text"
-                placeholder="Rechercher une techno, framework, outil..."
+                placeholder="Rechercher..."
                 value={githubSearch}
                 onChange={e => setGithubSearch(e.target.value)}
+                className="search-input"
                 style={{
-                  width: '100%',
-                  padding: '14px 20px 14px 48px',
-                  borderRadius: '12px',
                   border: '1px solid rgba(88, 166, 255, 0.3)',
-                  backgroundColor: 'rgba(88, 166, 255, 0.05)',
-                  color: '#fff',
-                  fontSize: '15px',
-                  outline: 'none'
+                  backgroundColor: 'rgba(88, 166, 255, 0.05)'
                 }}
               />
               {githubSearch && (
@@ -7436,41 +7378,34 @@ const VibeCodingEncyclopedia = () => {
             </div>
             
             {/* Filtres par catégorie */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', alignItems: 'center' }}>
+            <div className="category-filters">
               {[
                 { id: 'tous', label: 'Tous', icon: '📚', color: '#6b7280' },
                 { id: 'languages', label: 'Langages', icon: '💻', color: '#f472b6' },
-                { id: 'frontend', label: 'Frameworks Frontend', icon: '⚛️', color: '#60a5fa' },
-                { id: 'ui', label: 'UI & Styling', icon: '🎨', color: '#a78bfa' },
-                { id: 'packages', label: 'Package Managers', icon: '📦', color: '#f97316' },
-                { id: 'databases', label: 'Bases de données', icon: '🗄️', color: '#22c55e' },
-                { id: 'deployment', label: 'Déploiement', icon: '🚀', color: '#06b6d4' },
-                { id: 'tooling', label: 'Tooling & DevX', icon: '🔧', color: '#8b5cf6' },
+                { id: 'frontend', label: 'Frontend', icon: '⚛️', color: '#60a5fa' },
+                { id: 'ui', label: 'UI', icon: '🎨', color: '#a78bfa' },
+                { id: 'packages', label: 'Packages', icon: '📦', color: '#f97316' },
+                { id: 'databases', label: 'BDD', icon: '🗄️', color: '#22c55e' },
+                { id: 'deployment', label: 'Deploy', icon: '🚀', color: '#06b6d4' },
+                { id: 'tooling', label: 'Tooling', icon: '🔧', color: '#8b5cf6' },
                 { id: 'devops', label: 'DevOps', icon: '⚙️', color: '#f97316' },
-                { id: 'paas', label: 'Self-Hosted PaaS', icon: '☁️', color: '#10b981' },
+                { id: 'paas', label: 'PaaS', icon: '☁️', color: '#10b981' },
                 { id: 'vps', label: 'VPS', icon: '🖥️', color: '#3b82f6' },
-                { id: 'awesome', label: 'Awesome Lists', icon: '⭐', color: '#58a6ff' },
-                { id: 'framework', label: 'Frameworks IA', icon: '🤖', color: '#10b981' },
-                { id: 'mcp', label: 'MCP Servers', icon: '🔌', color: '#a855f7' },
+                { id: 'awesome', label: 'Awesome', icon: '⭐', color: '#58a6ff' },
+                { id: 'framework', label: 'IA', icon: '🤖', color: '#10b981' },
+                { id: 'mcp', label: 'MCP', icon: '🔌', color: '#a855f7' },
                 { id: 'standard', label: 'Standards', icon: '📋', color: '#f59e0b' },
-                { id: 'top', label: 'Top Stars', icon: '🏆', color: '#facc15' }
+                { id: 'top', label: 'Top', icon: '🏆', color: '#facc15' }
               ].map(cat => (
                 <button
                   key={cat.id}
+                  className="filter-pill"
                   onClick={() => setGithubFilter(cat.id)}
                   style={{
-                    padding: '5px 12px',
-                    borderRadius: '20px',
                     border: githubFilter === cat.id ? `2px solid ${cat.color}` : '1px solid rgba(255,255,255,0.2)',
                     backgroundColor: githubFilter === cat.id ? `${cat.color}33` : 'rgba(255,255,255,0.05)',
                     color: githubFilter === cat.id ? cat.color : '#9ca3af',
-                    cursor: 'pointer',
-                    fontSize: '12px',
-                    fontWeight: githubFilter === cat.id ? '600' : '400',
-                    transition: 'all 0.2s',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '5px'
+                    fontWeight: githubFilter === cat.id ? '600' : '400'
                   }}
                 >
                   {cat.icon} {cat.label}
@@ -7499,11 +7434,11 @@ const VibeCodingEncyclopedia = () => {
           </div>
 
           {/* Contenu scrollable */}
-          <div style={{ flex: 1, overflowY: 'auto', padding: '24px 32px 32px' }}>
-            
+          <div className="section-content">
+
             {/* Langages */}
-            {(githubFilter === 'tous' || githubFilter === 'languages') && githubResources.stack.languages.filter(item => 
-              githubSearch === '' || 
+            {(githubFilter === 'tous' || githubFilter === 'languages') && githubResources.stack.languages.filter(item =>
+              githubSearch === '' ||
               item.name.toLowerCase().includes(githubSearch.toLowerCase()) ||
               item.description.toLowerCase().includes(githubSearch.toLowerCase())
             ).length > 0 && (
@@ -7511,14 +7446,14 @@ const VibeCodingEncyclopedia = () => {
                 <h3 style={{ color: '#f472b6', fontSize: '18px', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '10px' }}>
                   💻 Langages de Programmation
                   <span style={{ fontSize: '12px', color: '#6b7280', fontWeight: '400' }}>
-                    ({githubResources.stack.languages.filter(item => 
-                      githubSearch === '' || 
+                    ({githubResources.stack.languages.filter(item =>
+                      githubSearch === '' ||
                       item.name.toLowerCase().includes(githubSearch.toLowerCase()) ||
                       item.description.toLowerCase().includes(githubSearch.toLowerCase())
                     ).length})
                   </span>
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px' }}>
+                <div className="items-grid">
                   {githubResources.stack.languages.filter(item => 
                     githubSearch === '' || 
                     item.name.toLowerCase().includes(githubSearch.toLowerCase()) ||
@@ -7567,7 +7502,7 @@ const VibeCodingEncyclopedia = () => {
                     ).length})
                   </span>
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px' }}>
+                <div className="items-grid">
                   {githubResources.stack.frontendFrameworks.filter(item => 
                     githubSearch === '' || 
                     item.name.toLowerCase().includes(githubSearch.toLowerCase()) ||
@@ -7616,7 +7551,7 @@ const VibeCodingEncyclopedia = () => {
                     ).length})
                   </span>
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px' }}>
+                <div className="items-grid">
                   {githubResources.stack.uiLibraries.filter(item => 
                     githubSearch === '' || 
                     item.name.toLowerCase().includes(githubSearch.toLowerCase()) ||
@@ -7665,7 +7600,7 @@ const VibeCodingEncyclopedia = () => {
                     ).length})
                   </span>
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px' }}>
+                <div className="items-grid">
                   {githubResources.stack.packageManagers.filter(item => 
                     githubSearch === '' || 
                     item.name.toLowerCase().includes(githubSearch.toLowerCase()) ||
@@ -7714,7 +7649,7 @@ const VibeCodingEncyclopedia = () => {
                     ).length})
                   </span>
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px' }}>
+                <div className="items-grid">
                   {githubResources.stack.databases.filter(item => 
                     githubSearch === '' || 
                     item.name.toLowerCase().includes(githubSearch.toLowerCase()) ||
@@ -7763,7 +7698,7 @@ const VibeCodingEncyclopedia = () => {
                     ).length})
                   </span>
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px' }}>
+                <div className="items-grid">
                   {githubResources.stack.deployment.filter(item => 
                     githubSearch === '' || 
                     item.name.toLowerCase().includes(githubSearch.toLowerCase()) ||
@@ -7812,7 +7747,7 @@ const VibeCodingEncyclopedia = () => {
                     ).length})
                   </span>
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px' }}>
+                <div className="items-grid">
                   {githubResources.stack.tooling.filter(item => 
                     githubSearch === '' || 
                     item.name.toLowerCase().includes(githubSearch.toLowerCase()) ||
@@ -7863,7 +7798,7 @@ const VibeCodingEncyclopedia = () => {
                     ).length})
                   </span>
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '12px' }}>
+                <div className="items-grid">
                   {githubResources.stack.devops.filter(item => 
                     githubSearch === '' || 
                     item.name.toLowerCase().includes(githubSearch.toLowerCase()) ||

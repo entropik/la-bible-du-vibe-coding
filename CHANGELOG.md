@@ -4,6 +4,22 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [1.5.0] - 2025-12-15
+
+### Unification UI Responsive - Toutes sections
+- **Classes CSS génériques** appliquées à Ressources, Benchmarks, GitHub
+- **Conteneur `.section-container`** : hauteur adaptative (50vh mobile, 85vh desktop)
+- **Header `.section-header`** : padding responsive (16px mobile, 32px desktop)
+- **Filtres `.category-filters`** : pills scrollables horizontalement sur mobile
+- **Grilles `.items-grid`** : 1 colonne mobile, auto-fill sur tablette/desktop
+- **Recherche `.search-input`** : padding et font-size adaptatifs
+- **Labels GitHub raccourcis** : "Frontend" au lieu de "Frameworks Frontend", etc.
+
+### Technique
+- Extraction des styles inline vers classes CSS réutilisables
+- Suppression ~300 lignes de styles dupliqués dans App.jsx
+- Mobile-first avec breakpoints : 480px, 640px, 768px
+
 ## [1.4.0] - 2025-12-15
 
 ### Refonte UI Mobile - Section LLM
