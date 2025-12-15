@@ -4,6 +4,20 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [1.4.0] - 2025-12-15
+
+### Refonte UI Mobile - Section LLM
+- **Filtres d'ère** : Pills horizontaux scrollables (swipe) au lieu de grille 4 lignes
+- **Header sticky** : Padding réduit sur mobile (16px vs 32px)
+- **Dropdowns** : Labels compacts (US/FR/CN au lieu de noms complets)
+- **Toggle Timeline/Grille** : Pleine largeur sur mobile < 480px
+- **Conteneur** : Hauteur adaptative (50vh mobile, 85vh desktop)
+
+### Technique
+- Classes CSS responsive : `.llm-section`, `.llm-header`, `.era-filters`, `.era-pill`, `.llm-controls`, `.llm-view-toggle`
+- Media queries : 480px, 640px, 768px
+- Années masquées sur mobile (classe `.era-years`)
+
 ## [1.3.1] - 2025-12-15
 
 ### Modifié

@@ -4512,29 +4512,9 @@ const VibeCodingEncyclopedia = () => {
     }), []);
 
     return (
-      <div id="llm-section" style={{
-        background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(249, 115, 22, 0.05) 50%, rgba(234, 179, 8, 0.05) 100%)',
-        borderRadius: '20px',
-        marginBottom: '32px',
-        border: '1px solid rgba(239, 68, 68, 0.2)',
-        position: 'relative',
-        minHeight: '85vh',
-        maxHeight: '85vh',
-        display: 'flex',
-        flexDirection: 'column',
-        overflow: 'hidden'
-      }}>
+      <div id="llm-section" className="llm-section">
         {/* Header STICKY - reste fixe en haut */}
-        <div style={{
-          position: 'sticky',
-          top: 0,
-          zIndex: 20,
-          background: 'linear-gradient(135deg, rgba(15, 15, 35, 0.98) 0%, rgba(26, 26, 46, 0.98) 100%)',
-          backdropFilter: 'blur(10px)',
-          padding: '24px 32px 16px',
-          borderBottom: '1px solid rgba(239, 68, 68, 0.2)',
-          borderRadius: '20px 20px 0 0'
-        }}>
+        <div className="llm-header">
           <button
             onClick={() => setActiveSection(null)}
             style={{
@@ -4596,13 +4576,8 @@ const VibeCodingEncyclopedia = () => {
             </p>
           </div>
 
-          {/* Navigation par ères - cliquable pour scroller */}
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', 
-            gap: '8px',
-            marginBottom: '16px'
-          }}>
+          {/* Navigation par ères - Pills scrollables sur mobile */}
+          <div className="era-filters">
             {[
               { id: 'all', label: 'Tous', years: 'Toutes ères', color: '#9ca3af', filterValue: 'all' },
               { id: 'era-1843', label: 'Précurseurs', years: '1843-1949', color: '#14b8a6', filterValue: 'precurseurs' },
@@ -4615,57 +4590,27 @@ const VibeCodingEncyclopedia = () => {
             ].map(era => (
               <button
                 key={era.id}
+                className="era-pill"
                 onClick={() => setLlmEraFilter(era.filterValue)}
                 style={{
                   backgroundColor: llmEraFilter === era.filterValue ? `${era.color}40` : `${era.color}15`,
                   border: llmEraFilter === era.filterValue ? `2px solid ${era.color}` : `1px solid ${era.color}44`,
-                  padding: '10px 6px',
-                  borderRadius: '10px',
-                  textAlign: 'center',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s',
-                  transform: llmEraFilter === era.filterValue ? 'scale(1.02)' : 'scale(1)'
-                }}
-                onMouseOver={e => {
-                  if (llmEraFilter !== era.filterValue) {
-                    e.currentTarget.style.backgroundColor = `${era.color}30`;
-                    e.currentTarget.style.borderColor = era.color;
-                    e.currentTarget.style.transform = 'translateY(-2px)';
-                  }
-                }}
-                onMouseOut={e => {
-                  if (llmEraFilter !== era.filterValue) {
-                    e.currentTarget.style.backgroundColor = `${era.color}15`;
-                    e.currentTarget.style.borderColor = `${era.color}44`;
-                    e.currentTarget.style.transform = 'translateY(0)';
-                  }
+                  color: era.color
                 }}
               >
-                <div style={{ color: era.color, fontSize: '13px', fontWeight: '600', marginBottom: '2px' }}>
-                  {era.label}
-                </div>
-                <div style={{ color: '#6b7280', fontSize: '10px' }}>
-                  {era.years}
-                </div>
+                {era.label}
+                <span className="era-years">{era.years}</span>
               </button>
             ))}
           </div>
 
           {/* Filtres LLM */}
-          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div className="llm-controls">
             <select
               value={llmFilter}
               onChange={e => setLlmFilter(e.target.value)}
-              style={{
-                padding: '8px 12px',
-                borderRadius: '8px',
-                border: '1px solid rgba(255,255,255,0.2)',
-                backgroundColor: '#1a1a2e',
-                color: '#fff',
-                fontSize: '13px'
-              }}
             >
-              <option value="all">Toutes les entreprises</option>
+              <option value="all">Entreprises</option>
               {llmCompanies.filter(c => c !== 'all').map(company => (
                 <option key={company} value={company}>{company}</option>
               ))}
@@ -4673,24 +4618,16 @@ const VibeCodingEncyclopedia = () => {
             <select
               value={llmCountryFilter}
               onChange={e => setLlmCountryFilter(e.target.value)}
-              style={{
-                padding: '8px 12px',
-                borderRadius: '8px',
-                border: '1px solid rgba(255,255,255,0.2)',
-                backgroundColor: '#1a1a2e',
-                color: '#fff',
-                fontSize: '13px'
-              }}
             >
               <option value="all">Pays</option>
-              <option value="US">🇺🇸 États-Unis</option>
-              <option value="FR">🇫🇷 France</option>
-              <option value="CN">🇨🇳 Chine</option>
-              <option value="CA">🇨🇦 Canada</option>
-              <option value="GB">🇬🇧 Royaume-Uni</option>
-              <option value="DE">🇩🇪 Allemagne</option>
-              <option value="IL">🇮🇱 Israël</option>
-              <option value="AE">🇦🇪 Émirats</option>
+              <option value="US">🇺🇸 US</option>
+              <option value="FR">🇫🇷 FR</option>
+              <option value="CN">🇨🇳 CN</option>
+              <option value="CA">🇨🇦 CA</option>
+              <option value="GB">🇬🇧 UK</option>
+              <option value="DE">🇩🇪 DE</option>
+              <option value="IL">🇮🇱 IL</option>
+              <option value="AE">🇦🇪 AE</option>
             </select>
 
             {/* Bouton Reset LLM */}
@@ -4702,73 +4639,44 @@ const VibeCodingEncyclopedia = () => {
                   setLlmEraFilter('all');
                 }}
                 style={{
-                  padding: '8px 12px',
+                  padding: '6px 10px',
                   borderRadius: '8px',
                   border: '1px solid rgba(239, 68, 68, 0.3)',
                   backgroundColor: 'rgba(239, 68, 68, 0.1)',
                   color: '#f87171',
-                  fontSize: '13px',
+                  fontSize: '12px',
                   cursor: 'pointer',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '6px',
+                  gap: '4px',
                   transition: 'all 0.2s'
                 }}
-                onMouseOver={e => {
-                  e.currentTarget.style.backgroundColor = 'rgba(239, 68, 68, 0.2)';
-                  e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.5)';
-                }}
-                onMouseOut={e => {
-                  e.currentTarget.style.backgroundColor = 'rgba(239, 68, 68, 0.1)';
-                  e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.3)';
-                }}
               >
-                <RotateCcw size={14} />
+                <RotateCcw size={12} />
                 Reset
               </button>
             )}
 
             {/* Toggle Timeline / Grille */}
-            <div style={{ 
-              display: 'flex', 
-              backgroundColor: 'rgba(255,255,255,0.1)', 
-              borderRadius: '8px',
-              marginLeft: 'auto'
-            }}>
+            <div className="llm-view-toggle">
               <button
+                className="llm-view-btn"
                 onClick={() => setLlmViewMode('timeline')}
                 style={{
-                  padding: '8px 14px',
-                  border: 'none',
-                  borderRadius: '8px',
                   backgroundColor: llmViewMode === 'timeline' ? 'rgba(239, 68, 68, 0.3)' : 'transparent',
                   color: llmViewMode === 'timeline' ? '#fca5a5' : '#9ca3af',
-                  cursor: 'pointer',
-                  fontSize: '13px',
-                  fontWeight: llmViewMode === 'timeline' ? '600' : '400',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  transition: 'all 0.2s'
+                  fontWeight: llmViewMode === 'timeline' ? '600' : '400'
                 }}
               >
                 <Calendar size={14} /> Timeline
               </button>
               <button
+                className="llm-view-btn"
                 onClick={() => setLlmViewMode('grid')}
                 style={{
-                  padding: '8px 14px',
-                  border: 'none',
-                  borderRadius: '8px',
                   backgroundColor: llmViewMode === 'grid' ? 'rgba(239, 68, 68, 0.3)' : 'transparent',
                   color: llmViewMode === 'grid' ? '#fca5a5' : '#9ca3af',
-                  cursor: 'pointer',
-                  fontSize: '13px',
-                  fontWeight: llmViewMode === 'grid' ? '600' : '400',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  transition: 'all 0.2s'
+                  fontWeight: llmViewMode === 'grid' ? '600' : '400'
                 }}
               >
                 <Grid3X3 size={14} /> Grille
