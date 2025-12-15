@@ -4,6 +4,22 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [1.6.0] - 2025-12-15
+
+### Bandeau stats défilant mobile
+- **Ticker animé** : stats en "chips" compacts qui défilent horizontalement sur mobile
+- **Grille desktop préservée** : affichage 6 colonnes sur écrans larges (≥768px)
+- **Animation CSS** : défilement continu 15s, boucle infinie
+- **Labels raccourcis** : "LLM" au lieu de "Modèles LLM", etc.
+
+### Corrections
+- Tagline : "sans jamais oser le demander" (ajout de "jamais")
+
+### Technique
+- Classes CSS : `.stats-ticker`, `.stats-ticker-track`, `.stat-chip`, `.stats-grid`
+- Animation `@keyframes ticker` avec `translateX(-50%)`
+- Duplication du contenu pour boucle seamless
+
 ## [1.5.0] - 2025-12-15
 
 ### Unification UI Responsive - Toutes sections

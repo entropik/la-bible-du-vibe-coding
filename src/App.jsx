@@ -5530,17 +5530,39 @@ const VibeCodingEncyclopedia = () => {
           lineHeight: '1.6',
           fontWeight: '400'
         }}>
-          Le guide <span className="scribble">ultime</span> du vibe coding : outils, modèles, workflows, tout ce que vous avez toujours voulu savoir sur le code sans oser le demander...
+          Le guide <span className="scribble">ultime</span> du vibe coding : outils, modèles, workflows, tout ce que vous avez toujours voulu savoir sur le code sans jamais oser le demander...
         </p>
         
-        {/* Stats accrocheuses */}
-        <div style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          gap: '16px',
-          marginBottom: '24px'
-        }}>
+        {/* Stats - Ticker mobile */}
+        <div className="stats-ticker">
+          <div className="stats-ticker-track">
+            {[...Array(2)].map((_, i) => (
+              <React.Fragment key={i}>
+                <span className="stat-chip" style={{ backgroundColor: 'rgba(139, 92, 246, 0.2)', color: '#a78bfa' }}>
+                  <span className="number">{stats.total}+</span> Outils IA
+                </span>
+                <span className="stat-chip" style={{ backgroundColor: 'rgba(251, 191, 36, 0.2)', color: '#fbbf24' }}>
+                  <span className="number">50+</span> LLM
+                </span>
+                <span className="stat-chip" style={{ backgroundColor: 'rgba(16, 185, 129, 0.2)', color: '#10b981' }}>
+                  <span className="number">85+</span> DevOps
+                </span>
+                <span className="stat-chip" style={{ backgroundColor: 'rgba(96, 165, 250, 0.2)', color: '#60a5fa' }}>
+                  <span className="number">50+</span> Ressources
+                </span>
+                <span className="stat-chip" style={{ backgroundColor: 'rgba(244, 114, 182, 0.2)', color: '#f472b6' }}>
+                  <span className="number">10</span> VPS
+                </span>
+                <Link to="/a-propos" className="stat-chip" style={{ backgroundColor: 'rgba(156, 163, 175, 0.2)', color: '#9ca3af', textDecoration: 'none' }}>
+                  <span className="number">?</span> À propos
+                </Link>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+
+        {/* Stats - Grille desktop */}
+        <div className="stats-grid">
           <div style={{
             backgroundColor: 'rgba(139, 92, 246, 0.15)',
             border: '1px solid rgba(139, 92, 246, 0.3)',
