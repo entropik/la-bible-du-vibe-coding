@@ -8364,11 +8364,7 @@ const VibeCodingEncyclopedia = () => {
 
       {/* Section Outils - Affichée seulement quand aucune autre section n'est ouverte */}
       {!activeSection && (
-        <div style={{
-          minHeight: '85vh',
-          display: 'flex',
-          flexDirection: 'column'
-        }}>
+        <div className="tools-section-container">
         {/* Section Outils - Barre de filtres STICKY */}
         <div
           id="tools-section"
@@ -8585,18 +8581,18 @@ const VibeCodingEncyclopedia = () => {
         </div>
       </div>
 
-      {/* Contenu principal */}
-      {viewMode === 'timeline' ? (
-        <div style={{ flex: 1 }}>
+      {/* Contenu scrollable */}
+      <div className="tools-content-scroll">
+        {viewMode === 'timeline' ? (
           <TimelineView />
-        </div>
-      ) : (
-        <div className="items-grid" style={{ flex: 1 }}>
-          {filteredTools.map(tool => (
-            <ToolCard key={tool.id} tool={tool} />
-          ))}
-        </div>
-      )}
+        ) : (
+          <div className="items-grid">
+            {filteredTools.map(tool => (
+              <ToolCard key={tool.id} tool={tool} />
+            ))}
+          </div>
+        )}
+      </div>
         </div>
       )}
 

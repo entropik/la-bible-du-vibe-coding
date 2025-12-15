@@ -4,16 +4,22 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
-## [1.7.3] - 2025-12-15
+## [1.7.4] - 2025-12-15
 
-### Filtres outils - Menu sticky
-- **Barre de filtres sticky** : reste visible en haut lors du scroll
-- **Même comportement** que les autres sections (LLM, Ressources, etc.)
-- **Responsive** : padding adaptatif mobile/desktop
+### Filtres outils - Menu sticky (fix)
+- **Conteneur avec scroll interne** : même structure que les autres sections
+- **Sticky fonctionne** : le header reste visible lors du scroll dans la section
+- **Hauteur limitée** : 85vh max pour créer le contexte de scroll
 
 ### Technique
-- Classe CSS `.tools-filters-sticky` avec `position: sticky; top: 0`
-- Remplacement des styles inline par classe CSS
+- Classe `.tools-section-container` : conteneur avec `overflow: hidden` et `max-height`
+- Classe `.tools-content-scroll` : zone scrollable avec `overflow-y: auto`
+- Structure identique aux sections LLM, Benchmarks, etc.
+
+## [1.7.3] - 2025-12-15
+
+### Filtres outils - Menu sticky (tentative)
+- Première tentative avec `position: sticky` seul (ne fonctionnait pas)
 
 ## [1.7.2] - 2025-12-15
 
