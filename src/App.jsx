@@ -5170,19 +5170,8 @@ const VibeCodingEncyclopedia = () => {
   // Composant carte d'outil
   const ToolCard = ({ tool }) => (
     <div
+      className="tool-card"
       onClick={() => setSelectedTool(tool)}
-      style={{
-        backgroundColor: 'rgba(255,255,255,0.05)',
-        borderRadius: '16px',
-        padding: '24px',
-      maxWidth: '100vw',
-      overflowX: 'hidden',
-        border: '1px solid rgba(255,255,255,0.1)',
-        cursor: 'pointer',
-        transition: 'all 0.3s ease',
-        position: 'relative',
-        overflow: 'hidden'
-      }}
       onMouseOver={e => {
         e.currentTarget.style.transform = 'translateY(-4px)';
         e.currentTarget.style.boxShadow = `0 20px 40px -15px ${categories[tool.category]?.color}33`;
@@ -5195,65 +5184,46 @@ const VibeCodingEncyclopedia = () => {
       }}
     >
       {/* Badge tier */}
-      <div style={{
-        position: 'absolute',
-        top: '12px',
-        right: '12px',
-        backgroundColor: tool.tier === 'incontournable' ? '#fbbf24' : tool.tier === 'opensource' ? '#10b981' : '#6366f1',
-        color: tool.tier === 'incontournable' ? '#000' : '#fff',
-        padding: '2px 8px',
-        borderRadius: '12px',
-        fontSize: '10px',
-        fontWeight: '600'
-      }}>
-        {tiers[tool.tier]?.icon}
+      <div
+        className="tier-badge"
+        style={{
+          backgroundColor: tiers[tool.tier]?.color || '#6366f1',
+          color: tool.tier === 'incontournable' ? '#000' : '#fff'
+        }}
+      >
+        {tiers[tool.tier]?.label || tool.tier}
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '12px' }}>
-        <div style={{
-          fontSize: '36px',
-          width: '56px',
-          height: '56px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: `${categories[tool.category]?.color}22`,
-          borderRadius: '12px'
-        }}>
+      <div className="tool-header">
+        <div
+          className="tool-logo"
+          style={{ backgroundColor: `${categories[tool.category]?.color}22` }}
+        >
           {tool.logo}
         </div>
         <div>
-          <h3 style={{ margin: 0, color: '#fff', fontSize: '18px' }}>{tool.name}</h3>
+          <h3 className="tool-title">{tool.name}</h3>
           <span style={{ color: '#9ca3af', fontSize: '12px' }}>
             {tool.country} • {tool.launchYear}
           </span>
         </div>
       </div>
 
-      <p style={{ 
-        color: '#9ca3af', 
-        fontSize: '13px', 
-        lineHeight: '1.5',
-        marginBottom: '12px',
-        display: '-webkit-box',
-        WebkitLineClamp: 2,
-        WebkitBoxOrient: 'vertical',
-        overflow: 'hidden'
-      }}>
+      <p className="tool-description">
         {tool.description}
       </p>
 
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{
-          backgroundColor: `${categories[tool.category]?.color}22`,
-          color: categories[tool.category]?.color,
-          padding: '4px 10px',
-          borderRadius: '20px',
-          fontSize: '11px'
-        }}>
+      <div className="tool-footer">
+        <span
+          className="category-badge"
+          style={{
+            backgroundColor: `${categories[tool.category]?.color}22`,
+            color: categories[tool.category]?.color
+          }}
+        >
           {categories[tool.category]?.icon} {categories[tool.category]?.label}
         </span>
-        <span style={{ color: '#10b981', fontSize: '13px', fontWeight: '600' }}>
+        <span className="tool-price">
           {tool.price}
         </span>
       </div>
@@ -8345,9 +8315,9 @@ const VibeCodingEncyclopedia = () => {
                     standard.description.toLowerCase().includes(githubSearch.toLowerCase())
                   ).length})</span>
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '16px' }}>
-                  {githubResources.standards.filter(standard => 
-                    githubSearch === '' || 
+                <div className="items-grid">
+                  {githubResources.standards.filter(standard =>
+                    githubSearch === '' ||
                     standard.name.toLowerCase().includes(githubSearch.toLowerCase()) ||
                     standard.description.toLowerCase().includes(githubSearch.toLowerCase())
                   ).map(standard => (
@@ -8629,12 +8599,7 @@ const VibeCodingEncyclopedia = () => {
           <TimelineView />
         </div>
       ) : (
-        <div style={{
-          flex: 1,
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-          gap: '20px'
-        }}>
+        <div className="items-grid" style={{ flex: 1 }}>
           {filteredTools.map(tool => (
             <ToolCard key={tool.id} tool={tool} />
           ))}

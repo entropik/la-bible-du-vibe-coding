@@ -4,6 +4,20 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [1.7.0] - 2025-12-15
+
+### Cartes d'outils - Responsive complet
+- **Badge tier visible** : affiche "Incontournables", "Challengers", etc. au lieu de `undefined`
+- **Pas de débordement** : suppression `maxWidth: 100vw` qui causait scrollbar horizontale
+- **Padding adaptatif** : 16px sur mobile, 24px sur desktop
+- **Logo adaptatif** : 48x48px sur mobile, 56x56px sur desktop
+- **Grille responsive** : 1 colonne mobile, auto-fill sur tablette/desktop
+
+### Technique
+- Classes CSS : `.tool-card`, `.tier-badge`, `.tool-logo`, `.tool-title`, `.tool-header`, `.tool-description`, `.tool-footer`, `.category-badge`, `.tool-price`
+- Remplacement des styles inline par classes CSS
+- Utilisation de `.items-grid` pour les grilles d'outils
+
 ## [1.6.3] - 2025-12-15
 
 ### Mobile - Défilement automatique unifié
