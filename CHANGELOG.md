@@ -4,6 +4,36 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [1.3.0] - 2025-12-15
+
+### Ajouté
+- Design responsive mobile-first pour la barre de navigation
+  - Mobile (< 640px) : 2 colonnes
+  - Tablette (640-1023px) : 3 colonnes
+  - Desktop (≥ 1024px) : 6 colonnes
+- Classe CSS `.nav-buttons-grid` avec media queries
+
+### Technique
+- Migration des styles inline vers CSS externe pour le responsive
+- Configuration nginx `try_files` pour le support SPA (React Router)
+
+## [1.2.0] - 2025-12-15
+
+### Ajouté
+- Page "À propos" (`/a-propos`) avec contenu narratif complet
+  - Histoire du projet et du vibe coding
+  - Présentation de l'auteur (Marc)
+  - Roadmap des fonctionnalités à venir
+- React Router pour la navigation multi-pages
+- Bouton "À propos" dans le header (après VPS Providers)
+- Lien "À propos" dans le footer
+- Composant `About.jsx` avec design cohérent
+
+### Technique
+- Installation de `react-router-dom`
+- Configuration BrowserRouter dans `main.jsx`
+- Composant App avec Routes
+
 ## [1.1.0] - 2025-12-12
 
 ### Corrigé

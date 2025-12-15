@@ -43,3 +43,26 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #4b5563 #1a1a2e;
 }
+
+/* Grille des boutons de navigation - Mobile First */
+.nav-buttons-grid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 32px;
+  /* Mobile (défaut) : 2 colonnes */
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Tablette : 3 colonnes */
+@media (min-width: 640px) {
+  .nav-buttons-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Desktop : 6 colonnes */
+@media (min-width: 1024px) {
+  .nav-buttons-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

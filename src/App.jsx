@@ -5712,12 +5712,7 @@ const VibeCodingEncyclopedia = () => {
       {activeSection === 'intro' && <VibeCodingIntro />}
 
       {/* Grille des 6 boutons de sections (onglets) */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(6, 1fr)',
-        gap: '12px',
-        marginBottom: '32px'
-      }}>
+      <div className="nav-buttons-grid">
         {/* Bouton Vibe Coding Intro */}
         <button
           onClick={() => toggleSection('intro')}
