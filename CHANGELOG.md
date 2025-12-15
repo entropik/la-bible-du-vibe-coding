@@ -4,6 +4,19 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [1.7.2] - 2025-12-15
+
+### Modal outil - Responsive complet
+- **Badge tier visible** : affiche "Incontournables" au lieu de `undefined` dans la modal
+- **Layout responsive** : padding réduit sur mobile (20px vs 32px)
+- **Logo adaptatif** : 80x80 mobile, 100x100 desktop
+- **Grille infos** : 1 colonne sur mobile, 2 colonnes sur tablette/desktop
+- **Titre sur sa propre ligne** : badge tier en dessous pour éviter le débordement
+
+### Technique
+- Classes CSS : `.modal-header`, `.modal-logo`, `.modal-body`, `.modal-info-grid`
+- Media query 480px pour grille, 640px pour padding/logo
+
 ## [1.7.1] - 2025-12-15
 
 ### Bandeau stats mobile - Améliorations UX

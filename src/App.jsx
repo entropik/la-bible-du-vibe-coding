@@ -4136,50 +4136,51 @@ const VibeCodingEncyclopedia = () => {
           boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)'
         }} onClick={e => e.stopPropagation()}>
           {/* Header avec logo et infos principales */}
-          <div style={{
+          <div className="modal-header" style={{
             background: `linear-gradient(135deg, ${categories[tool.category]?.color || '#6366f1'}22, transparent)`,
-            padding: '32px',
+            padding: '20px',
             borderBottom: '1px solid rgba(255,255,255,0.1)'
           }}>
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '20px' }}>
-              <div style={{
-                fontSize: '64px',
-                width: '100px',
-                height: '100px',
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+              <div className="modal-logo" style={{
+                fontSize: '48px',
+                width: '80px',
+                height: '80px',
+                minWidth: '80px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: 'rgba(255,255,255,0.1)',
-                borderRadius: '20px'
+                borderRadius: '16px'
               }}>
                 {tool.logo}
               </div>
-              <div style={{ flex: 1 }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
-                  <h2 style={{ margin: 0, fontSize: '28px', color: '#fff' }}>{tool.name}</h2>
-                  <span style={{
-                    backgroundColor: tool.tier === 'incontournable' ? '#fbbf24' : tool.tier === 'opensource' ? '#10b981' : '#6366f1',
-                    color: tool.tier === 'incontournable' ? '#000' : '#fff',
-                    padding: '4px 12px',
-                    borderRadius: '20px',
-                    fontSize: '12px',
-                    fontWeight: '600'
-                  }}>
-                    {tiers[tool.tier]?.icon} {tiers[tool.tier]?.label}
-                  </span>
-                </div>
-                <p style={{ color: '#9ca3af', margin: '8px 0', fontSize: '16px' }}>{tool.description}</p>
-                <div style={{ display: 'flex', gap: '16px', marginTop: '12px', flexWrap: 'wrap', alignItems: 'center' }}>
-                  <span style={{ color: '#9ca3af', fontSize: '14px' }}>{tool.country}</span>
-                  <span style={{ color: '#9ca3af', fontSize: '14px', display: 'flex', alignItems: 'center', gap: '4px' }}><Calendar size={12} /> {tool.launchDate}</span>
-                  <span style={{ color: '#10b981', fontSize: '14px', fontWeight: '600' }}>{tool.price}</span>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <h2 style={{ margin: '0 0 8px 0', fontSize: '22px', color: '#fff' }}>{tool.name}</h2>
+                <span style={{
+                  display: 'inline-block',
+                  backgroundColor: tiers[tool.tier]?.color || '#6366f1',
+                  color: tool.tier === 'incontournable' ? '#000' : '#fff',
+                  padding: '4px 10px',
+                  borderRadius: '20px',
+                  fontSize: '11px',
+                  fontWeight: '600',
+                  marginBottom: '8px'
+                }}>
+                  {tiers[tool.tier]?.label || tool.tier}
+                </span>
+                <p style={{ color: '#9ca3af', margin: '8px 0', fontSize: '14px', lineHeight: '1.5' }}>{tool.description}</p>
+                <div style={{ display: 'flex', gap: '12px', marginTop: '8px', flexWrap: 'wrap', alignItems: 'center', fontSize: '13px' }}>
+                  <span style={{ color: '#9ca3af' }}>{tool.country}</span>
+                  <span style={{ color: '#9ca3af', display: 'flex', alignItems: 'center', gap: '4px' }}><Calendar size={12} /> {tool.launchDate}</span>
+                  <span style={{ color: '#10b981', fontWeight: '600' }}>{tool.price}</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* Corps avec détails */}
-          <div style={{ padding: '24px 32px' }}>
+          <div className="modal-body" style={{ padding: '20px' }}>
             {/* Résumé */}
             <div style={{ marginBottom: '24px' }}>
               <h3 style={{ color: '#fff', fontSize: '16px', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -4191,12 +4192,7 @@ const VibeCodingEncyclopedia = () => {
             </div>
 
             {/* Informations entreprise */}
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
-              gap: '16px',
-              marginBottom: '24px'
-            }}>
+            <div className="modal-info-grid">
               <div style={{
                 backgroundColor: 'rgba(255,255,255,0.05)',
                 padding: '16px',
