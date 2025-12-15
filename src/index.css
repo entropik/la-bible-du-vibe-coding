@@ -630,6 +630,30 @@ body {
 }
 
 /* ============================================
+   Filtres outils - Sticky
+   ============================================ */
+
+.tools-filters-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(15, 15, 35, 0.98);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+@media (min-width: 640px) {
+  .tools-filters-sticky {
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+}
+
+/* ============================================
    Modal outil - Responsive
    ============================================ */
 

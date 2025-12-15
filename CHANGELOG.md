@@ -4,6 +4,17 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [1.7.3] - 2025-12-15
+
+### Filtres outils - Menu sticky
+- **Barre de filtres sticky** : reste visible en haut lors du scroll
+- **Même comportement** que les autres sections (LLM, Ressources, etc.)
+- **Responsive** : padding adaptatif mobile/desktop
+
+### Technique
+- Classe CSS `.tools-filters-sticky` avec `position: sticky; top: 0`
+- Remplacement des styles inline par classe CSS
+
 ## [1.7.2] - 2025-12-15
 
 ### Modal outil - Responsive complet

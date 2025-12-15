@@ -8370,20 +8370,9 @@ const VibeCodingEncyclopedia = () => {
           flexDirection: 'column'
         }}>
         {/* Section Outils - Barre de filtres STICKY */}
-        <div 
+        <div
           id="tools-section"
-          style={{
-            position: 'sticky',
-            top: 0,
-            zIndex: 50,
-            backgroundColor: 'rgba(15, 15, 35, 0.98)',
-            backdropFilter: 'blur(10px)',
-            borderRadius: '16px',
-            padding: '20px',
-            marginBottom: '24px',
-            border: '1px solid rgba(255,255,255,0.1)',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.3)'
-          }}
+          className="tools-filters-sticky"
         >
           {/* Recherche */}
           <div style={{ marginBottom: '16px', position: 'relative' }}>
