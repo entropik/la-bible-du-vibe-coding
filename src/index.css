@@ -390,49 +390,69 @@ body {
 }
 
 /* ============================================
-   Bandeau stats défilant - Mobile
+   Stats scrollables - Mobile
    ============================================ */
 
-.stats-marquee {
-  overflow: hidden;
-  background: linear-gradient(90deg, rgba(139, 92, 246, 0.1) 0%, rgba(251, 191, 36, 0.1) 50%, rgba(16, 185, 129, 0.1) 100%);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding: 8px 0;
-  margin: -24px -24px 24px -24px;
-  cursor: pointer;
+/* Wrapper avec indicateur de scroll */
+.stats-scroll-wrapper {
+  position: relative;
+  margin-bottom: 24px;
 }
 
-.stats-marquee-track {
+.stats-scroll-wrapper::after {
+  content: '→';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, transparent, #0f0f23 70%);
+  padding: 8px 8px 8px 24px;
+  color: #6b7280;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+/* Conteneur scrollable */
+.stats-scroll {
   display: flex;
-  gap: 32px;
-  animation: marquee 20s linear infinite;
-  width: max-content;
+  gap: 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 4px 0;
+  padding-right: 40px; /* Espace pour la flèche */
+}
+
+.stats-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Bouton stat compact */
+.stat-btn {
+  flex-shrink: 0;
+  padding: 10px 16px;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 100px;
+  text-decoration: none;
+}
+
+.stat-btn .number {
+  font-size: 22px;
+  font-weight: 700;
+  display: block;
+}
+
+.stat-btn .label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   color: #9ca3af;
-  font-size: 12px;
 }
 
-.stats-marquee:hover .stats-marquee-track,
-.stats-marquee.paused .stats-marquee-track {
-  animation-play-state: paused;
-}
-
-.stats-marquee-track span {
-  white-space: nowrap;
-}
-
-.stats-marquee-track .highlight {
-  color: #a78bfa;
-  font-weight: 600;
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* Desktop : masquer bandeau, afficher grille */
+/* Desktop : masquer scroll, afficher grille */
 @media (min-width: 768px) {
-  .stats-marquee {
+  .stats-scroll-wrapper {
     display: none;
   }
 }

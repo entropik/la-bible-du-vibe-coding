@@ -4,6 +4,20 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [1.6.2] - 2025-12-15
+
+### Stats mobile - Scroll horizontal avec couleurs
+- **Ligne scrollable** : 6 boutons stats sur une ligne horizontale (swipe)
+- **Couleurs préservées** : violet, jaune, vert, bleu, rose, gris pour chaque stat
+- **Position sous tagline** : retour à la position originale (pas en haut)
+- **Indicateur de scroll** : flèche → à droite pour indiquer le scroll
+- **Même taille que desktop** : boutons compacts mais lisibles
+
+### Technique
+- Classes CSS : `.stats-scroll-wrapper`, `.stats-scroll`, `.stat-btn`
+- Indicateur via pseudo-élément `::after` avec fade gradient
+- Suppression du bandeau marquee animé
+
 ## [1.6.1] - 2025-12-15
 
 ### Bandeau marquee mobile (v2)
