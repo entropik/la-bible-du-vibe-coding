@@ -4,6 +4,19 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [1.6.3] - 2025-12-15
+
+### Mobile - Défilement automatique unifié
+- **Boutons stats** : défilement automatique doux (15s loop) avec pause au hover
+- **Boutons navigation** : ligne scrollable horizontale (swipe manuel)
+- **Couleurs préservées** : chaque stat garde sa couleur distinctive
+- **Tablette/Desktop** : grilles inchangées
+
+### Technique
+- Animation CSS `@keyframes stats-scroll` avec `translateX(-50%)`
+- Double set d'éléments pour boucle infinie seamless
+- `.nav-buttons-grid` : flex sur mobile, grid sur tablette/desktop
+
 ## [1.6.2] - 2025-12-15
 
 ### Stats mobile - Scroll horizontal avec couleurs

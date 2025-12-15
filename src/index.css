@@ -44,23 +44,42 @@ body {
   scrollbar-color: #4b5563 #1a1a2e;
 }
 
-/* Grille des boutons de navigation - Mobile First */
+/* Boutons de navigation - Mobile First */
+/* Mobile : ligne scrollable horizontale */
 .nav-buttons-grid {
-  display: grid;
+  display: flex;
   gap: 12px;
   margin-bottom: 32px;
-  /* Mobile (défaut) : 2 colonnes */
-  grid-template-columns: repeat(2, 1fr);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-bottom: 8px;
 }
 
-/* Tablette : 3 colonnes */
+.nav-buttons-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-buttons-grid > button {
+  flex-shrink: 0;
+  min-width: 140px;
+}
+
+/* Tablette : grille 3 colonnes */
 @media (min-width: 640px) {
   .nav-buttons-grid {
+    display: grid;
     grid-template-columns: repeat(3, 1fr);
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+
+  .nav-buttons-grid > button {
+    min-width: auto;
   }
 }
 
-/* Desktop : 6 colonnes */
+/* Desktop : grille 6 colonnes */
 @media (min-width: 1024px) {
   .nav-buttons-grid {
     grid-template-columns: repeat(6, 1fr);
@@ -390,41 +409,33 @@ body {
 }
 
 /* ============================================
-   Stats scrollables - Mobile
+   Stats défilantes - Mobile (marquee style)
    ============================================ */
 
-/* Wrapper avec indicateur de scroll */
+/* Wrapper overflow hidden pour marquee */
 .stats-scroll-wrapper {
   position: relative;
   margin-bottom: 24px;
+  overflow: hidden;
 }
 
-.stats-scroll-wrapper::after {
-  content: '→';
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background: linear-gradient(90deg, transparent, #0f0f23 70%);
-  padding: 8px 8px 8px 24px;
-  color: #6b7280;
-  font-size: 14px;
-  pointer-events: none;
-}
-
-/* Conteneur scrollable */
+/* Track animé avec les boutons */
 .stats-scroll {
   display: flex;
   gap: 12px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  width: max-content;
+  animation: stats-scroll 15s linear infinite;
   padding: 4px 0;
-  padding-right: 40px; /* Espace pour la flèche */
 }
 
-.stats-scroll::-webkit-scrollbar {
-  display: none;
+/* Pause au hover/touch */
+.stats-scroll-wrapper:hover .stats-scroll {
+  animation-play-state: paused;
+}
+
+@keyframes stats-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* Bouton stat compact */

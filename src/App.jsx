@@ -5533,33 +5533,38 @@ const VibeCodingEncyclopedia = () => {
           Le guide <span className="scribble">ultime</span> du vibe coding : outils, modèles, workflows, tout ce que vous avez toujours voulu savoir sur le code sans jamais oser le demander...
         </p>
         
-        {/* Stats - Scroll mobile */}
+        {/* Stats - Défilement auto mobile */}
         <div className="stats-scroll-wrapper">
           <div className="stats-scroll">
-            <div className="stat-btn" style={{ backgroundColor: 'rgba(139, 92, 246, 0.15)', border: '1px solid rgba(139, 92, 246, 0.3)' }}>
-              <span className="number" style={{ color: '#a78bfa' }}>{stats.total}+</span>
-              <span className="label">Outils IA</span>
-            </div>
-            <div className="stat-btn" style={{ backgroundColor: 'rgba(251, 191, 36, 0.15)', border: '1px solid rgba(251, 191, 36, 0.3)' }}>
-              <span className="number" style={{ color: '#fbbf24' }}>50+</span>
-              <span className="label">Modèles LLM</span>
-            </div>
-            <div className="stat-btn" style={{ backgroundColor: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
-              <span className="number" style={{ color: '#10b981' }}>85+</span>
-              <span className="label">DevOps Tools</span>
-            </div>
-            <div className="stat-btn" style={{ backgroundColor: 'rgba(96, 165, 250, 0.15)', border: '1px solid rgba(96, 165, 250, 0.3)' }}>
-              <span className="number" style={{ color: '#60a5fa' }}>50+</span>
-              <span className="label">Ressources</span>
-            </div>
-            <div className="stat-btn" style={{ backgroundColor: 'rgba(244, 114, 182, 0.15)', border: '1px solid rgba(244, 114, 182, 0.3)' }}>
-              <span className="number" style={{ color: '#f472b6' }}>10</span>
-              <span className="label">VPS Providers</span>
-            </div>
-            <Link to="/a-propos" className="stat-btn" style={{ backgroundColor: 'rgba(156, 163, 175, 0.15)', border: '1px solid rgba(156, 163, 175, 0.3)' }}>
-              <span className="number" style={{ color: '#9ca3af' }}>?</span>
-              <span className="label">À propos</span>
-            </Link>
+            {/* Double set pour animation continue */}
+            {[...Array(2)].map((_, i) => (
+              <React.Fragment key={i}>
+                <div className="stat-btn" style={{ backgroundColor: 'rgba(139, 92, 246, 0.15)', border: '1px solid rgba(139, 92, 246, 0.3)' }}>
+                  <span className="number" style={{ color: '#a78bfa' }}>{stats.total}+</span>
+                  <span className="label">Outils IA</span>
+                </div>
+                <div className="stat-btn" style={{ backgroundColor: 'rgba(251, 191, 36, 0.15)', border: '1px solid rgba(251, 191, 36, 0.3)' }}>
+                  <span className="number" style={{ color: '#fbbf24' }}>50+</span>
+                  <span className="label">Modèles LLM</span>
+                </div>
+                <div className="stat-btn" style={{ backgroundColor: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.3)' }}>
+                  <span className="number" style={{ color: '#10b981' }}>85+</span>
+                  <span className="label">DevOps Tools</span>
+                </div>
+                <div className="stat-btn" style={{ backgroundColor: 'rgba(96, 165, 250, 0.15)', border: '1px solid rgba(96, 165, 250, 0.3)' }}>
+                  <span className="number" style={{ color: '#60a5fa' }}>50+</span>
+                  <span className="label">Ressources</span>
+                </div>
+                <div className="stat-btn" style={{ backgroundColor: 'rgba(244, 114, 182, 0.15)', border: '1px solid rgba(244, 114, 182, 0.3)' }}>
+                  <span className="number" style={{ color: '#f472b6' }}>10</span>
+                  <span className="label">VPS Providers</span>
+                </div>
+                <Link to="/a-propos" className="stat-btn" style={{ backgroundColor: 'rgba(156, 163, 175, 0.15)', border: '1px solid rgba(156, 163, 175, 0.3)' }}>
+                  <span className="number" style={{ color: '#9ca3af' }}>?</span>
+                  <span className="label">À propos</span>
+                </Link>
+              </React.Fragment>
+            ))}
           </div>
         </div>
 
