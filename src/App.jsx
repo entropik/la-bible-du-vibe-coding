@@ -5622,7 +5622,7 @@ const VibeCodingEncyclopedia = () => {
           lineHeight: '1.6',
           fontWeight: '400'
         }}>
-          Le guide ultime du vibe coding : outils, modèles, workflows, tout ce que vous avez toujours voulu savoir sur le code sans oser le demander...
+          Le guide <span className="scribble">ultime</span> du vibe coding : outils, modèles, workflows, tout ce que vous avez toujours voulu savoir sur le code sans oser le demander...
         </p>
         
         {/* Stats accrocheuses */}

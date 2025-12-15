@@ -1,6 +1,6 @@
 # La Bible du Vibe Coding
 
-Le guide ultime du vibe coding : outils, modèles, workflows, tout ce que vous avez toujours voulu savoir sur le code sans oser le demander.
+Le guide ~~ultime~~ du vibe coding : outils, modèles, workflows, tout ce que vous avez toujours voulu savoir sur le code sans oser le demander.
 
 **[labibleduvibecoding.fr](https://labibleduvibecoding.fr)**
 

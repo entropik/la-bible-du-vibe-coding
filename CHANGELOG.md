@@ -4,6 +4,17 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [1.3.1] - 2025-12-15
+
+### Modifié
+- Effet gribouillage manuscrit sur le mot "ultime" dans le tagline
+  - Ligne rouge/rose (#ff6b6b) épaisse avec rotation -3°
+  - Dégradé aux extrémités pour effet "brush"
+  - Remplace le simple strikethrough CSS
+
+### Technique
+- Classe CSS `.scribble` avec pseudo-élément `::after`
+
 ## [1.3.0] - 2025-12-15
 
 ### Ajouté
