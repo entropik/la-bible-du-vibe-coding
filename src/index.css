@@ -428,8 +428,9 @@ body {
   padding: 4px 0;
 }
 
-/* Pause au hover/touch */
-.stats-scroll-wrapper:hover .stats-scroll {
+/* Pause au hover/touch/click */
+.stats-scroll-wrapper:hover .stats-scroll,
+.stats-scroll-wrapper.paused .stats-scroll {
   animation-play-state: paused;
 }
 

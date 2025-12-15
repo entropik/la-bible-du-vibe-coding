@@ -4,6 +4,18 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [1.7.1] - 2025-12-15
+
+### Bandeau stats mobile - Améliorations UX
+- **Couleur "À propos"** : cyan (#22d3ee) au lieu de gris - plus joyeux et visible
+- **Pause au toucher** : le défilement s'arrête quand on appuie avec le doigt
+- **Reprise automatique** : le défilement reprend quand on relâche
+- **Cohérence desktop** : même couleur cyan sur la grille desktop
+
+### Technique
+- Events : `onTouchStart`, `onTouchEnd`, `onMouseDown`, `onMouseUp`, `onMouseLeave`
+- Classe `.paused` toggle pour `animation-play-state: paused`
+
 ## [1.7.0] - 2025-12-15
 
 ### Cartes d'outils - Responsive complet

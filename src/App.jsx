@@ -5504,7 +5504,14 @@ const VibeCodingEncyclopedia = () => {
         </p>
         
         {/* Stats - Défilement auto mobile */}
-        <div className="stats-scroll-wrapper">
+        <div
+          className="stats-scroll-wrapper"
+          onTouchStart={e => e.currentTarget.classList.add('paused')}
+          onTouchEnd={e => e.currentTarget.classList.remove('paused')}
+          onMouseDown={e => e.currentTarget.classList.add('paused')}
+          onMouseUp={e => e.currentTarget.classList.remove('paused')}
+          onMouseLeave={e => e.currentTarget.classList.remove('paused')}
+        >
           <div className="stats-scroll">
             {/* Double set pour animation continue */}
             {[...Array(2)].map((_, i) => (
@@ -5529,8 +5536,8 @@ const VibeCodingEncyclopedia = () => {
                   <span className="number" style={{ color: '#f472b6' }}>10</span>
                   <span className="label">VPS Providers</span>
                 </div>
-                <Link to="/a-propos" className="stat-btn" style={{ backgroundColor: 'rgba(156, 163, 175, 0.15)', border: '1px solid rgba(156, 163, 175, 0.3)' }}>
-                  <span className="number" style={{ color: '#9ca3af' }}>?</span>
+                <Link to="/a-propos" className="stat-btn" style={{ backgroundColor: 'rgba(34, 211, 238, 0.15)', border: '1px solid rgba(34, 211, 238, 0.3)' }}>
+                  <span className="number" style={{ color: '#22d3ee' }}>?</span>
                   <span className="label">À propos</span>
                 </Link>
               </React.Fragment>
@@ -5591,15 +5598,15 @@ const VibeCodingEncyclopedia = () => {
             <div style={{ color: '#9ca3af', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>VPS Providers</div>
           </div>
           <Link to="/a-propos" style={{
-            backgroundColor: 'rgba(156, 163, 175, 0.15)',
-            border: '1px solid rgba(156, 163, 175, 0.3)',
+            backgroundColor: 'rgba(34, 211, 238, 0.15)',
+            border: '1px solid rgba(34, 211, 238, 0.3)',
             borderRadius: '12px',
             padding: '12px 20px',
             textAlign: 'center',
             textDecoration: 'none',
             transition: 'all 0.3s'
           }}>
-            <div style={{ color: '#9ca3af', fontSize: '28px', fontWeight: '700' }}>?</div>
+            <div style={{ color: '#22d3ee', fontSize: '28px', fontWeight: '700' }}>?</div>
             <div style={{ color: '#9ca3af', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.5px' }}>À propos</div>
           </Link>
         </div>
