@@ -1840,7 +1840,7 @@ const VibeCodingEncyclopedia = () => {
       launchYear: 2025,
       price: 'Gratuit (preview)',
       description: 'IDE agent-first de Google propulsé par Gemini 3',
-      url: 'https://antigravityai.org',
+      url: 'https://antigravity.google',
       stack: 'Gemini 3 Pro, VS Code fork, Browser automation',
       logo: '🚀',
       country: '🇺🇸 États-Unis',
