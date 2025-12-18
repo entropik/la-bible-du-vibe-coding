@@ -4,6 +4,24 @@ Toutes les modifications notables de ce projet seront documentées dans ce fichi
 
 Le format est basé sur [Keep a Changelog](https://keepachangelog.com/fr/1.0.0/).
 
+## [1.8.0] - 2025-12-18
+
+### Correction URLs outils
+- **Claude Code** : platform.claude.com/docs/en/home
+- **Meku** : meku.dev
+- **OpenAI Codex CLI** : developers.openai.com/codex/cli
+- **Gemini CLI** : geminicli.com
+- **Cloudflare VibeSDK** : github.com/cloudflare/vibesdk
+- **Dyad** : www.dyad.sh
+- **Antigravity** : antigravity.google (ancienne URL pointait vers site porno)
+
+### Supprimé
+- **PearAI** : outil retiré (identifié comme scam)
+
+### Technique
+- Nombre d'outils : 64 (au lieu de 65)
+- Vérification systématique des URLs sortantes
+
 ## [1.7.4] - 2025-12-15
 
 ### Filtres outils - Menu sticky (fix)
